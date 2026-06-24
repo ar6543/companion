@@ -49,9 +49,6 @@ image-slot{display:block;}
       <div ref="{{ refWarm }}" style="position:absolute;inset:0;z-index:1;opacity:0;background:radial-gradient(82% 76% at 63% 47%,#ffe7eb 0%,#f8bcc6 46%,#f1a3b1 100%);"></div>
 
       <div ref="{{ refRobot }}" style="position:absolute;inset:0;z-index:2;will-change:transform;">
-        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
-          <img src="robot-hero.png" alt="Компаньон — умная колонка" style="max-width:min(440px,42vw);max-height:52vh;width:auto;height:auto;display:block;filter:drop-shadow(0 30px 52px rgba(210,110,132,.26));animation:cmpFloat 6s ease-in-out infinite;">
-        </div>
         <video ref="{{ refVideo }}" preload="auto" playsinline="" muted="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 48%;transform:scale(1.22);transform-origin:center center;opacity:0;transition:opacity .6s ease;"></video>
       </div>
 
@@ -465,7 +462,7 @@ image-slot{display:block;}
         <div style="flex:1 1 130px;">
           <h4 style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:#999;margin:0 0 20px;">Контакты</h4>
           <div style="display:flex;flex-direction:column;gap:12px;">
-            <a href="/cdn-cgi/l/email-protection#c8a0ada4a4a788aba7a5b8a9a6a1a7a6e6babd" style="font-size:14px;font-weight:400;color:#555;text-decoration:none;transition:color .2s;" style-hover="color:#ff6b8a"><span class="__cf_email__" data-cfemail="c5ada0a9a9aa85a6aaa8b5a4abacaaabebb7b0">[email&#160;protected]</span></a>
+            <a href="mailto:hello@companion.ru" style="font-size:14px;font-weight:400;color:#555;text-decoration:none;transition:color .2s;" style-hover="color:#ff6b8a">hello@companion.ru</a>
             <a href="tel:+74951234567" style="font-size:14px;font-weight:400;color:#555;text-decoration:none;transition:color .2s;" style-hover="color:#ff6b8a">+7 (495) 123-45-67</a>
             <a href="#preorder" style="font-size:14px;font-weight:400;color:#555;text-decoration:none;transition:color .2s;" style-hover="color:#ff6b8a">Предзаказ</a>
           </div>
@@ -508,7 +505,7 @@ image-slot{display:block;}
         <span style="font-size:clamp(120px,22vw,260px);font-weight:200;letter-spacing:-8px;color:#1a1a1a;line-height:.9;">4</span>
         <div style="position:relative;width:clamp(120px,20vw,240px);height:clamp(120px,20vw,240px);display:flex;align-items:center;justify-content:center;">
           <div style="position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 50% 42%,#ffe2e8,#ff9fb1);box-shadow:0 24px 60px rgba(214,90,116,.4),inset 0 -12px 30px rgba(214,90,116,.22);"></div>
-          <image-slot id="nf-photo" shape="circle" fit="cover" src="robot-hero.png" placeholder="Ваше фото" style="position:relative;width:96%;height:96%;border-radius:50%;animation:cmpFloat 5s ease-in-out infinite;filter:drop-shadow(0 14px 22px rgba(180,70,95,.3));"></image-slot>
+          <img src="nf-robot.png" alt="Компаньон" style="position:relative;width:100%;height:100%;object-fit:contain;animation:cmpFloat 5s ease-in-out infinite;filter:drop-shadow(0 14px 22px rgba(180,70,95,.3));">
         </div>
         <span style="font-size:clamp(120px,22vw,260px);font-weight:200;letter-spacing:-8px;color:#1a1a1a;line-height:.9;">4</span>
       </div>
@@ -526,7 +523,7 @@ image-slot{display:block;}
 
 </div>
 </x-dc>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/x-dc" data-dc-script data-props="{
+<script type="text/x-dc" data-dc-script data-props="{
   &quot;scrollHint&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot; },
   &quot;firstFree&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot; },
   &quot;motionStyle&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;Плавно&quot;, &quot;options&quot;: [&quot;Плавно&quot;, &quot;Кинематографично&quot;], &quot;tsType&quot;: &quot;string&quot; },
