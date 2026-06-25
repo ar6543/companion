@@ -19,20 +19,30 @@ body{margin:0;}
 @keyframes cmpDrift{0%,100%{transform:translate(0,0) rotate(-3deg);}50%{transform:translate(0,-18px) rotate(3deg);}}
 ::selection{background:rgba(255,107,138,.25);}
 image-slot{display:block;}
+@media (max-width:760px){
+  body{overflow-x:hidden;}
+  .navlinks,.navpills{display:none !important;}
+  .cnav{justify-content:center !important;padding:14px 18px !important;}
+  .herop2{align-items:flex-end !important;padding-bottom:120px !important;}
+  .herop2in{max-width:86vw !important;}
+  .cmpcard{overflow-x:auto !important;-webkit-overflow-scrolling:touch;}
+  .cmpgrid{min-width:600px !important;}
+  .g1col{grid-template-columns:1fr !important;}
+}
 </style>
 <script src="./image-slot.js"></script>
 </helmet>
 <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-weight:300;color:#1a1a1a;background:#ffe0e6;-webkit-font-smoothing:antialiased;line-height:1.5;">
 
-  <nav style="position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:20px clamp(20px,5vw,56px);">
+  <nav class="cnav" style="position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:20px clamp(20px,5vw,56px);">
     <div style="display:flex;align-items:center;gap:18px;">
       <span style="font-weight:500;font-size:21px;letter-spacing:-.4px;">Компаньон</span>
-      <div style="display:flex;gap:7px;">
+      <div class="navpills" style="display:flex;gap:7px;">
         <span onClick="{{ selectAudience }}" style="padding:8px 15px;border-radius:40px;font-size:13.5px;font-weight:400;background:#ff6b8a;color:#fff;box-shadow:0 6px 16px rgba(255,107,138,.3);cursor:pointer;transition:background .25s,color .25s;">Родственникам</span>
         <span onClick="{{ selectAudience }}" style="padding:8px 15px;border-radius:40px;font-size:13.5px;font-weight:400;background:rgba(255,255,255,.6);color:#7a6e70;border:1px solid rgba(255,255,255,.7);cursor:pointer;transition:background .25s,color .25s;">Пожилым</span>
       </div>
     </div>
-    <div style="display:flex;gap:clamp(14px,2vw,30px);align-items:center;font-size:15px;font-weight:400;color:#6b6163;">
+    <div class="navlinks" style="display:flex;gap:clamp(14px,2vw,30px);align-items:center;font-size:15px;font-weight:400;color:#6b6163;">
       <a href="#about" style="color:inherit;text-decoration:none;" style-hover="color:#ff6b8a">О нас</a>
       <a href="#how" style="color:inherit;text-decoration:none;" style-hover="color:#ff6b8a">Как работает</a>
       <a href="#price" style="color:inherit;text-decoration:none;" style-hover="color:#ff6b8a">Тарифы</a>
@@ -67,8 +77,8 @@ image-slot{display:block;}
       </div>
 
       <!-- PHASE 2 : left -->
-      <div ref="{{ refP2 }}" style="position:absolute;inset:0;z-index:3;display:flex;align-items:center;padding:0 clamp(24px,6vw,80px);opacity:0;pointer-events:none;will-change:transform,opacity;">
-        <div style="max-width:min(380px,30vw);">
+      <div ref="{{ refP2 }}" class="herop2" style="position:absolute;inset:0;z-index:3;display:flex;align-items:center;padding:0 clamp(24px,6vw,80px);opacity:0;pointer-events:none;will-change:transform,opacity;">
+        <div class="herop2in" style="max-width:min(380px,30vw);">
           <h2 style="font-size:clamp(32px,4.6vw,58px);font-weight:300;letter-spacing:-1.6px;line-height:1.1;margin:0;">Колонка-компаньон<br>для&nbsp;пожилых родственников</h2>
           <p style="font-size:clamp(15px,1.4vw,19px);font-weight:300;color:#6b5e60;line-height:1.62;margin:22px 0 0;">Установите колонку у пожилого родственника, и она в фоновом режиме будет ежедневно общаться с ним, фиксировать настроение и показатели самочувствия, предупреждая вас при тревожных случаях.</p>
         </div>
@@ -88,7 +98,7 @@ image-slot{display:block;}
   <!-- ============ BLOCK 2 : два продукта ============ -->
   <section id="about" data-screen-label="Два продукта" style="min-height:100vh;background:linear-gradient(180deg,#ffe0e6 0%,#ffd1d9 100%);padding:120px 6vw;display:flex;flex-direction:column;align-items:center;justify-content:center;box-sizing:border-box;">
     <h2 style="font-size:clamp(28px,4vw,40px);font-weight:300;color:#1a1a1a;text-align:center;margin:0 0 70px;line-height:1.3;letter-spacing:-.5px;">Два продукта — одна забота</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;max-width:1000px;width:100%;">
+    <div class="g1col" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;max-width:1000px;width:100%;">
 
       <div style="background:rgba(255,255,255,.85);border-radius:32px;padding:40px 36px;border:1px solid rgba(255,255,255,.6);box-shadow:0 4px 24px rgba(255,107,138,.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:all .4s cubic-bezier(.4,0,.2,1);" style-hover="background:rgba(255,255,255,1);box-shadow:inset 0 3px 0 #ff6b8a,0 12px 40px rgba(255,107,138,.12);transform:translateY(-3px)">
         <image-slot id="app-screenshot" src="card-speaker.jpg" fit="cover" placeholder="Фото колонки" style="width:100%;height:240px;margin-bottom:28px;border-radius:24px;border:1px dashed rgba(255,107,138,.3);background:repeating-linear-gradient(45deg,#fff2f5,#fff2f5 13px,#ffe2e8 13px,#ffe2e8 26px);color:#c77f90;"></image-slot>
@@ -125,7 +135,7 @@ image-slot{display:block;}
       <h2 style="font-size:clamp(28px,4vw,40px);font-weight:300;color:#1a1a1a;line-height:1.3;margin:0 0 16px;letter-spacing:-.5px;">Беспокойство — это <span style="color:#ff6b8a;font-weight:500;">нормально</span></h2>
       <p style="font-size:18px;color:#888;font-weight:300;letter-spacing:.5px;margin:0;">Но теперь есть решение</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:20px;max-width:860px;width:100%;margin-bottom:50px;">
+    <div class="g1col" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:20px;max-width:860px;width:100%;margin-bottom:50px;">
       <sc-for list="{{ stats }}" as="stat" hint-placeholder-count="4">
         <div onClick="{{ stat.toggle }}" style="background:{{ stat.bg }};border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.6);box-shadow:{{ stat.shadow }};transition:all .4s cubic-bezier(.4,0,.2,1);cursor:pointer;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transform:{{ stat.lift }};">
           <div style="display:flex;align-items:center;padding:24px 28px;gap:20px;">
@@ -176,7 +186,7 @@ image-slot{display:block;}
     <div style="text-align:center;max-width:820px;margin:0 0 100px;">
       <h2 style="font-size:clamp(34px,5vw,56px);font-weight:300;color:#1a1a1a;line-height:1.15;letter-spacing:-1.5px;margin:0;">Для тех, кто переживает.<br>И для тех, <span style="color:#ff6b8a;font-weight:400;">о ком переживают.</span></h2>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;max-width:1100px;width:100%;">
+    <div class="g1col" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;max-width:1100px;width:100%;">
 
       <div style="background:rgba(255,255,255,.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.8);border-radius:32px;padding:clamp(40px,5vw,70px) clamp(32px,4vw,56px);box-shadow:0 4px 24px rgba(255,107,138,.04);transition:all .5s cubic-bezier(.4,0,.2,1);" style-hover="background:rgba(255,255,255,.9);box-shadow:0 20px 60px rgba(255,107,138,.1);transform:translateY(-4px)">
         <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:#999;margin-bottom:32px;">Взрослые дети</div>
@@ -203,8 +213,8 @@ image-slot{display:block;}
   <section data-screen-label="Сравнение" style="background:linear-gradient(#ffe0e6,#ffe9ee);padding:clamp(80px,11vh,140px) 6vw;">
     <div style="max-width:1100px;margin:0 auto;">
       <h2 style="font-size:clamp(32px,4.4vw,56px);font-weight:300;letter-spacing:-1.6px;line-height:1.12;margin:0 0 48px;">Почему не просто колонка или часы</h2>
-      <div style="background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.7);border-radius:28px;overflow:hidden;box-shadow:0 16px 50px rgba(255,107,138,.1);">
-        <div style="display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr 1.05fr;">
+      <div class="cmpcard" style="background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.7);border-radius:28px;overflow:hidden;box-shadow:0 16px 50px rgba(255,107,138,.1);">
+        <div class="cmpgrid" style="display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr 1.05fr;">
           <div style="padding:22px 20px;"></div>
           <div style="padding:22px 14px;text-align:center;font-size:14px;font-weight:400;color:#8a7e80;">Голосовой ассистент</div>
           <div style="padding:22px 14px;text-align:center;font-size:14px;font-weight:400;color:#8a7e80;">Умные часы</div>
@@ -310,7 +320,7 @@ image-slot{display:block;}
         <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:#999;margin-bottom:16px;">Поддержка и валидация</div>
         <h3 style="font-size:clamp(26px,3vw,32px);font-weight:400;color:#1a1a1a;margin:0;letter-spacing:-.5px;">Нам доверяют ведущие организации</h3>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:24px;max-width:1000px;margin:0 auto;">
+      <div class="g1col" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:24px;max-width:1000px;margin:0 auto;">
         <div style="background:rgba(255,255,255,.5);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.6);border-radius:24px;padding:40px;display:flex;gap:24px;align-items:flex-start;transition:all .4s cubic-bezier(.4,0,.2,1);" style-hover="background:rgba(255,255,255,.85);box-shadow:0 12px 32px rgba(255,107,138,.08);transform:translateY(-2px)">
           <div style="width:6px;height:6px;border-radius:50%;background:#ff6b8a;flex-shrink:0;margin-top:8px;box-shadow:0 0 0 4px rgba(255,107,138,.1);"></div>
           <div style="flex-grow:1;">
@@ -462,7 +472,7 @@ image-slot{display:block;}
         <div style="flex:1 1 130px;">
           <h4 style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:#999;margin:0 0 20px;">Контакты</h4>
           <div style="display:flex;flex-direction:column;gap:12px;">
-            <a href="mailto:hello@companion.ru" style="font-size:14px;font-weight:400;color:#555;text-decoration:none;transition:color .2s;" style-hover="color:#ff6b8a">hello@companion.ru</a>
+            <a href="/cdn-cgi/l/email-protection#234b464f4f4c63404c4e53424d4a4c4d0d5156" style="font-size:14px;font-weight:400;color:#555;text-decoration:none;transition:color .2s;" style-hover="color:#ff6b8a"><span class="__cf_email__" data-cfemail="0e666b6262614e6d61637e6f60676160207c7b">[email&#160;protected]</span></a>
             <a href="tel:+74951234567" style="font-size:14px;font-weight:400;color:#555;text-decoration:none;transition:color .2s;" style-hover="color:#ff6b8a">+7 (495) 123-45-67</a>
             <a href="#preorder" style="font-size:14px;font-weight:400;color:#555;text-decoration:none;transition:color .2s;" style-hover="color:#ff6b8a">Предзаказ</a>
           </div>
@@ -523,7 +533,7 @@ image-slot{display:block;}
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/x-dc" data-dc-script data-props="{
   &quot;scrollHint&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot; },
   &quot;firstFree&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot; },
   &quot;motionStyle&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;Плавно&quot;, &quot;options&quot;: [&quot;Плавно&quot;, &quot;Кинематографично&quot;], &quot;tsType&quot;: &quot;string&quot; },
